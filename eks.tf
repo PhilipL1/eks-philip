@@ -24,6 +24,18 @@ module "eks" {
       asg_desired_capacity          = 1
     },
   ]
+
+# // Alternative solution to worker groups: I wont need a security group if i use "node group because it is a self manage service."
+# // I should see nodes on the eks UI console if im not able to see nodes using "worker groups"
+#   node_groups = {
+#     first = {
+#       desired_capacity = 2
+#       max_capacity =  3
+#       min_capacity = 1
+#       instanace_type = "t3.small"
+#     }
+
+
   tags = {
       Owner = var.owner
       Name = "eks-lartey"
